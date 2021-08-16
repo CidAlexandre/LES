@@ -1,0 +1,29 @@
+#card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 150px;
+    margin: auto;
+    text-align: center;
+    font: 200 12px 'Poppins', sans-serif;
+    padding: 0px;
+    border-radius: 8px;
+    background: #ffffff;
+
+    align-items: center;
+    transition: 0.3s;
+
+    &:hover{
+      filter:brightness(0.9)
+    }
+
+    
+    .price {
+      color: grey;
+      font-size: 12px;
+    }
+    
+    .card-img{
+      align-self: center;
+      max-width: 140px;
+    }
+  }
+

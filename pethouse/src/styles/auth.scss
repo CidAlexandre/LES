@@ -1,0 +1,78 @@
+#page-auth{
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+
+    aside{
+        flex:6;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        padding: 100px 80px;
+    
+        background: #ffffff;
+        img{
+            max-width: 450px;
+            align-items: center;
+        }
+    
+        strong{
+            font: 700 36px 'Poppins', sans-serif;
+            line-height: 42px;
+            margin-top: 16px;
+        }
+    
+        p{
+            font-size: 24px;
+            line-height: 32px;
+            margin-top: 16px;
+            color: #f8f8f8;
+        }
+    }
+    
+    main{
+        flex: 8;
+        display: flex;
+        padding: 0 32px;
+        align-items: center;
+        justify-content: center;
+        background: #f0a18a;
+    
+        a{
+            display: flex;
+            font-size: small;
+        }
+    }
+
+    .main-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        align-items: stretch;
+        text-align: center;
+
+        >img{
+            align-self: center;
+        }
+
+        input{
+            height: 50px;
+            border-radius: 8px;
+            padding: 0 16px;
+            background: rgb(255, 255, 255);
+            border: 1px solid #a8a8b3;
+        }
+
+        button{
+            margin-top: 16px;
+        }
+
+        button, input{
+            width:100%; 
+        }
+    }
+
+}

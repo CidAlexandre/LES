@@ -1,0 +1,51 @@
+#page-registry{
+    display: flexbox;
+    align-items: center;
+    height: 100vh;
+    padding: 15%;
+    padding-top: 10%;
+    background: #f0a18a;
+
+    .container{
+        border-radius: 20px;
+        background:#f8f8f8;
+    }
+    main{
+        font:700 36px 'Poppins', sans-serif; 
+        color:rgb(0, 0, 0);
+        text-align: center;
+        padding-bottom: 5%;
+        .p1{
+            font:700 18px 'Poppins', sans-serif;
+    
+        }
+    }
+
+    form{
+        color:rgb(70, 70, 70);
+        font:700 18px 'Poppins', sans-serif; 
+        padding-left: 20%;
+        padding-right: 20%;
+        align-items: center;
+
+        div{
+            display: flex;
+            padding-bottom: 5px;
+        }
+
+        input{
+            padding: 0 16px;
+            width: 220px;
+            height: 30px;
+            border-radius: 8px;
+            border: 1px solid darkgray;
+        }    
+        
+        button{
+            
+            align-items: center;
+            width: 80%;
+        }
+
+    }
+}
