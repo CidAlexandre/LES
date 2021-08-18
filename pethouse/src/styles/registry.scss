@@ -4,11 +4,11 @@
     height: 100vh;
     padding: 15%;
     padding-top: 10%;
-    background: #f0a18a;
+    background-color: #f8f8f8;
 
     .container{
         border-radius: 20px;
-        background:#f8f8f8;
+        background:#f7d2c7;
     }
     main{
         font:700 36px 'Poppins', sans-serif; 
@@ -33,12 +33,14 @@
             padding-bottom: 5px;
         }
 
-        input{
+        input,select{
+            margin-left: auto;
             padding: 0 16px;
             width: 220px;
             height: 30px;
             border-radius: 8px;
             border: 1px solid darkgray;
+            font-size: 14px;
         }    
         
         button{

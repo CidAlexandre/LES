@@ -1,21 +1,20 @@
-import 'styles/card.scss';
+import "styles/card.scss";
 
-type CardProps = {
-    productId: string;
-    productName: string;
-    productAmount: string;
-    productImageUrl: any
-}
+export function ProductCard({ product }: any) {
+  return (
+    <div id="card">
+      <img
+        className="card-img"
+        src={product.productImageUrl}
+        alt={product.productName}
+      />
+      <div>
+        <h2>
+          <b>{product.productName}</b>
+        </h2>
 
-export function ProductCard(props : CardProps){
-    return(
-        <div id = "card">
-            <img className="card-img" src = {props.productImageUrl}  alt = {props.productName}/> 
-            <div>
-            <h2><b>{props.productName}</b></h2>    
-            
-               <span className = "price"> R$ {props.productAmount} </span>
-            </div>
-        </div>
-        )
+        <span className="price"> R$ {product.productAmount} </span>
+      </div>
+    </div>
+  );
 }

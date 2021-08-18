@@ -4,17 +4,17 @@
     height: 100vh;
 
     aside{
-        flex:6;
+        flex:1;
     
         display: flex;
         flex-direction: column;
         justify-content: center;
     
-        padding: 100px 80px;
+       // padding: 100px 80px;
     
         background: #ffffff;
         img{
-            max-width: 450px;
+            
             align-items: center;
         }
     
@@ -33,12 +33,12 @@
     }
     
     main{
-        flex: 8;
+        flex: 2;
         display: flex;
         padding: 0 32px;
         align-items: center;
         justify-content: center;
-        background: #f0a18a;
+        background: #e7d4b7;
     
         a{
             display: flex;
