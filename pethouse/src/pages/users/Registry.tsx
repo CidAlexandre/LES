@@ -2,8 +2,47 @@ import React from "react";
 import { Button } from "components/Button";
 import "styles/registry.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+
+const initialValue = {
+  fName: "",
+  sName: "",
+  birthDate: Date,
+  cpf: "",
+  typePhone: "",
+  phoneNumber: "",
+  cep: "",
+  address: "",
+  addresNumber: "",
+  complement: "",
+  neighbor: "",
+  city: "",
+  state: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 export function Registry() {
+  const [values, setValues] = useState(initialValue);
+
+  const history = useHistory();
+
+  function onChange(ev : any) {
+    const { name, value } = ev.target;
+    setValues({...values, [name] : value});
+  }
+
+  function onSubmit(ev : any){
+    ev.preventDefault();
+    axios.post('http://localhost:8000/create-user', values)
+    .then((response) => {
+      history.push("/");
+    });
+  }
+
   return (
     <div id="page-registry">
       <div className=".container-fluid">
@@ -13,13 +52,15 @@ export function Registry() {
             Veja seus pedidos e faça compras de forma rápida e fácil
           </p>
         </main>
-        <form>
+        <form onSubmit={onSubmit}> 
           <div>
             Nome
             <input
               type="text"
-              id="fname"
+              id="fName"
+              name="fName"
               placeholder="Digite seu nome"
+              onChange={onChange}
               required
             />
           </div>
@@ -28,15 +69,23 @@ export function Registry() {
             Sobrenome
             <input
               type="text"
-              id="sname"
+              id="sName"
+              name="sName"
               placeholder="Digite seu sobrenome"
+              onChange={onChange}
               required
             />
           </div>
 
           <div>
             Data de nascimento
-            <input type="date" id="birthDate" required />
+            <input
+              type="date"
+              id="birthDate"
+              name="birthDate"
+              onChange={onChange}
+              required
+            />
           </div>
 
           <div>
@@ -44,6 +93,8 @@ export function Registry() {
             <input
               type="text"
               id="cpf"
+              name="cpf"
+              onChange={onChange}
               placeholder="___-___-___-__"
               pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"
               required
@@ -52,7 +103,12 @@ export function Registry() {
 
           <div>
             Tipo de telefone
-            <select id="typePhone" required>
+            <select
+              id="typePhone"
+              name="typePhone"
+              onChange={onChange}
+              required
+            >
               <option>Celular</option>
               <option>Residencial</option>
               <option>Comercial</option>
@@ -64,6 +120,8 @@ export function Registry() {
             <input
               type="tel"
               id="phoneNumber"
+              name="phoneNumber"
+              onChange={onChange}
               placeholder="(xx)xxxxx-xxxx"
               pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
               required
@@ -75,6 +133,8 @@ export function Registry() {
             <input
               type="text"
               id="cep"
+              name="cep"
+              onChange={onChange}
               placeholder="_____-___"
               pattern="[0-9]{5}.[0-9]{3}"
               required
@@ -86,6 +146,8 @@ export function Registry() {
             <input
               type="text"
               id="address"
+              name="address"
+              onChange={onChange}
               placeholder="Digite seu endereço"
               required
             />
@@ -95,6 +157,8 @@ export function Registry() {
             <input
               type="text"
               id="addressNumber"
+              name="addressNumber"
+              onChange={onChange}
               placeholder="Digite o número do endereço"
               required
             />
@@ -102,7 +166,13 @@ export function Registry() {
 
           <div>
             Complemento
-            <input type="text" id="complement" placeholder="ex. casa 2" />
+            <input
+              type="text"
+              id="complement"
+              name="complement"
+              onChange={onChange}
+              placeholder="ex. casa 2"
+            />
           </div>
 
           <div>
@@ -110,6 +180,8 @@ export function Registry() {
             <input
               type="text"
               id="neighbor"
+              name="neighbor"
+              onChange={onChange}
               placeholder="Digite seu bairro"
               required
             />
@@ -120,6 +192,8 @@ export function Registry() {
             <input
               type="text"
               id="city"
+              name="city"
+              onChange={onChange}
               placeholder="Digite sua cidade"
               required
             />
@@ -130,6 +204,8 @@ export function Registry() {
             <input
               type="text"
               id="state"
+              name="state"
+              onChange={onChange}
               placeholder="Digite seu estado"
               required
             />
@@ -140,6 +216,8 @@ export function Registry() {
             <input
               type="email"
               id="email"
+              name="email"
+              onChange={onChange}
               placeholder="Digite seu e-mail"
               required
             />
@@ -150,6 +228,8 @@ export function Registry() {
             <input
               type="password"
               id="password"
+              name="password"
+              onChange={onChange}
               placeholder="Digite sua senha"
               required
             />
@@ -160,6 +240,8 @@ export function Registry() {
             <input
               type="password"
               id="confirmPassword"
+              name="confirmPassword"
+              onChange={onChange}
               placeholder="Confirme sua senha"
               required
             />
