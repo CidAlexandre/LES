@@ -2,7 +2,7 @@ package com.pethouse.api.dao;
 
 import java.util.List;
 
-import com.pethouse.domain.model.DomainEntity;
+import com.pethouse.api.domain.model.DomainEntity;
 
 public interface IDAO {
 	public DomainEntity create (DomainEntity domainEntity);

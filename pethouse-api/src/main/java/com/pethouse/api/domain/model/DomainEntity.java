@@ -1,4 +1,4 @@
-package com.pethouse.domain.model;
+package com.pethouse.api.domain.model;
 
 import java.time.LocalDateTime;
 

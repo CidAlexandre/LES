@@ -1,4 +1,4 @@
-package com.pethouse.domain.model;
+package com.pethouse.api.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,7 @@ public enum AddressType {
 	BILLING("Cobrança"),
 	DELIVERY("Entrega");
 	
+
 	private final String description;
 
 }

@@ -1,5 +1,6 @@
-package com.pethouse.domain.model;
+package com.pethouse.api.domain.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -9,9 +10,12 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Where;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +24,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity(name = "customer")
+@Where(clause = "detele_at is null")
 public class Customer extends DomainEntity{
 	
 	
@@ -32,9 +38,8 @@ public class Customer extends DomainEntity{
 	
 	private String cpf;
 	
-	
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDateTime birthDate;
+	private LocalDate birthDate;
 	
 	private String phone;
 	
@@ -48,8 +53,15 @@ public class Customer extends DomainEntity{
 	@Transient
 	private String newPassword;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@OneToMany(fetch = FetchType.LAZY, 
+				cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, 
+				mappedBy = "customer", targetEntity = Address.class)
 	private List<Address> address;
+	
+	@OneToMany(fetch = FetchType.LAZY,
+				cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE },
+				mappedBy = "customer", targetEntity = CreditCard.class)
+	private List<CreditCard> card;
 	
 
 }

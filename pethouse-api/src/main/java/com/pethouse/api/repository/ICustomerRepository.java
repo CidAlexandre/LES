@@ -1,11 +1,11 @@
-package com.pethouse.domain.repository;
+package com.pethouse.api.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.pethouse.domain.model.Customer;
+import com.pethouse.api.domain.model.Customer;
 
 
 @Repository

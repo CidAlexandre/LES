@@ -1,9 +1,11 @@
-package com.pethouse.domain.model;
+package com.pethouse.api.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Where;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "address")
+@Where(clause = "delete_at is null")
 public class Address extends DomainEntity {
 
 	private String street;
@@ -31,7 +34,7 @@ public class Address extends DomainEntity {
 	
 	private String state;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private AddressType addressType;
 	
 	@ManyToOne
